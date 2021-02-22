@@ -1,0 +1,25 @@
+﻿<Window x:Class="Word2Pdf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Word2Pdf"
+        mc:Ignorable="d"
+        Title="Word2Pdf" Height="450" Width="800">
+    <Grid>
+        <Label Content="Word目录：" HorizontalAlignment="Left" Margin="131.4,44.4,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.964,0.539"/>
+        <TextBox x:Name="wordDir" HorizontalAlignment="Left" Height="23" Margin="209.4,45.4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="501" AutomationProperties.HelpText="请选择Word目录！"/>
+        <Button Content="选择" HorizontalAlignment="Left" Margin="715.4,47.4,0,0" VerticalAlignment="Top" Width="56" Click="Button_Click"/>
+        <ListView x:Name="fileList" HorizontalAlignment="Left" Height="198" Margin="134,101,0,0" VerticalAlignment="Top" Width="637.4" AllowDrop="True" MouseMove="mouseMove" Drop="drop">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="文件名" DisplayMemberBinding="{Binding Path=FileName}"></GridViewColumn>
+                    <GridViewColumn Header="文件大小(KB)" DisplayMemberBinding="{Binding Path=FileSize}"></GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Content="扫描" HorizontalAlignment="Left" Margin="224.2,76.76,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.251,0.469" Click="scanClick"/>
+        <Button Content="转换" HorizontalAlignment="Left" Margin="573.6,76.76,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.251,0.469" Click="convertClick"/>
+
+    </Grid>
+</Window>
